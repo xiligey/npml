@@ -1,14 +1,26 @@
-"""装饰器"""
+"""npml装饰器"""
 
 from functools import wraps
 
 import numpy as np
 from numpy import ndarray
 
-from python.npml.utils.exceptions import ParametersError
+from npml.utils.exceptions import ParametersError
 
 
 def check_params_type(type_=ndarray, except_first=True):
+    """检查参数类型
+
+    Args:
+        type_ ([type], optional): [description]. Defaults to ndarray.
+        except_first (bool, optional): [description]. Defaults to True.
+
+    Raises:
+        ParametersError: [description]
+
+    Returns:
+        [type]: [description]
+    """    """"""
     """
     检查参数类型是否为type_，如果不是，报ParametersError
     @param type_: 参数需满足的类型

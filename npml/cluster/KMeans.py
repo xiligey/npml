@@ -1,20 +1,32 @@
+"""kmeans模块"""
 import numpy as np
-
-from base import Clusterer
-from utils.distances import euclidean_distance
-from utils.exceptions import NotFittedError, NotSupportedError
 from numpy import ndarray
+
+from npml.base import Clusterer
+from npml.utils.distances import euclidean_distance
+from npml.utils.exceptions import NotFittedError, NotSupportedError
 
 
 class KMeans(Clusterer):
+    """KMeans聚类"""
 
-    def __init__(self):
-        super(KMeans, self).__init__()
+    def __init__(self) -> None:
+        super().__init__()
         self.labels = None
         self.centroids = None
 
     def fit(self, x_train, k=8, init_centroids_method="random", max_iter=100000,
-            distance=euclidean_distance):
+            distance=euclidean_distance) -> None:
+        """KMeans的训练过程
+        Args:
+            x_train:
+            k:
+            init_centroids_method:
+            max_iter:
+            distance:
+        Returns:
+
+        """
         """
         @param x_train: 训练集, (n_samples, n_features)
         @param k: 将x_train聚成k类

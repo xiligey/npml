@@ -1,2 +1,2 @@
-class FPGrowth(object):
+class FPGrowth:
     """"""

@@ -1,2 +1,2 @@
-class Aproior(object):
+class Aproior:
     """"""

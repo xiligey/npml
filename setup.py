@@ -20,10 +20,10 @@ setup(
     # metadata for upload to PyPI
     author="XiLin Chen",
     author_email="635943647@qq.com",
-    description="Fastseer Package",
+    description="npml package",
     license="PSF",
-    keywords="fastseer",
-    url="http://code.bizseer.com/algorithm/fastseer-core",   # project home page, if any
+    keywords="npml",
+    url="http://github.com/xiligey/npml",   # project home page, if any
 
     # could also include long_description, download_url, classifiers, etc.
 )

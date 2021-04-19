@@ -1,28 +1,30 @@
+"""base模块"""
 from numpy import ndarray
 
-from metrics.classification import accuracy
-from metrics.regression import r2
-from python.npml.utils.decorators import check_params_type
+from npml.metrics.classification import accuracy
+from npml.metrics.regression import r2
+from npml.utils.decorators import check_params_type
 
 
-class Model(object):
+class Model:
     """所有模型的基类"""
     __model_type = "model"
 
-    def fit(self, *args, **kwargs):
+    def fit(self) -> None:
         """训练"""
 
-    def predict(self, *args, **kwargs):
+    def predict(self) -> ndarray:
         """预测"""
 
-    def score(self, *args, **kwargs):
+    def score(self) -> ndarray:
         """评分"""
 
-    def plot(self, *args, **kwargs):
+    def plot(self) -> None:
         """绘图"""
 
     @property
-    def model_type(self):
+    def model_type(self) -> str:
+        """获取模型类型"""
         return self.__model_type
 
 
@@ -54,12 +56,12 @@ class LinearRegressor(Regressor):
     """线性回归模型"""
     __model_type = "linear_regressor"
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.intercept = None  # 截距项
         self.coefficient = None  # 系数
 
     @property
-    def is_fitted(self):
+    def is_fitted(self) -> bool:
         """判断模型是否已训练，如果coefficient和intercept属性皆不为空则表示模型已训练"""
         return True if self.coefficient is not None and self.intercept is not None else True
 
@@ -85,3 +87,8 @@ class Clusterer(UnsupervisedModel):
 class DimensionReducer(UnsupervisedModel):
     """降维模型"""
     __model_type = "dimension_reducer"
+
+
+class AnomalyDetector(UnsupervisedModel):
+    """异常检测模型"""
+    __model_type = "anomaly_detector"

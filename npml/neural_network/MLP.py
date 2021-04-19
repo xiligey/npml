@@ -1,7 +1,7 @@
 import numpy as np
 
-from base import ClassifierMixin
-from utils.activation_functions import sigmoid
+from npml.base import ClassifierMixin
+from npml.utils.activation_functions import sigmoid
 
 
 class MultiLayerPerceptron(ClassifierMixin):

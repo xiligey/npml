@@ -1,6 +1,24 @@
-基于 numpy 的机器学习算法实现
+# npml
+Npml(Numpy machine learning)，是一个基于numpy实现常见的机器学习算法的python包。
 
-> 目录
+## 项目结构
+- data: 存放一些测试用到的数据
+- docs: 各个算法的理论介绍
+- npml: npml的所有代码
+- tests: npml单元测试目录
+
+## 算法清单
+
+- npml
+
+  - 回归
+  - 分类
+    - 
+  - 聚类
+  - 降维
+  - 时间序列
+  - 
+  - 数据挖掘
 
 - [ ] [关联规则(association_rules)](association_rules)
   - [ ] [Aproior](association_rules/Aproior.py)
