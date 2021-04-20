@@ -1,6 +1,7 @@
 """npml装饰器"""
 
 from functools import wraps
+from typing import Callable
 
 import numpy as np
 from numpy import ndarray
@@ -41,10 +42,22 @@ def check_params_type(type_=ndarray, except_first=True):
     return check_type
 
 
-if __name__ == '__main__':
-    @check_params_type()
-    def predict(a, b):
-        return a, b
-    X = np.array([1, 2, 3])
-    y = np.array([1])
-    print(predict(X, y))
+def check_array_dimension(ndim: int) -> Callable:
+    """检查数组参数的维度
+    Args:
+        ndim: 指定的维度
+    Returns:
+        如果该装饰器应用在某函数上，该函数的参数的维度不等于ndim则引发异常
+    """
+
+    def check_dimension(func):
+        @wraps(func)
+        def check(*args, **kwargs):
+            for arg in args:
+                if arg.ndim != ndim:
+                    raise ParametersError("%s must be %sd array" % (arg, ndim))
+            return func(*args, **kwargs)
+
+        return check
+
+    return check_dimension
