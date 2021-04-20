@@ -47,7 +47,7 @@ def check_array_dimension(ndim: int) -> Callable:
     Args:
         ndim: 指定的维度
     Returns:
-        如果该装饰器应用在某函数上，该函数的参数的维度不等于ndim则引发异常
+        如果该装饰器应用在某函数上，该函数的参数的维度不等于ndim则引发ParametersError
     """
 
     def check_dimension(func):
