@@ -1,5 +1,6 @@
 """各种距离和相似度
-具体计算公式 👉 https://github.com/xiligey/npml_theories/utils/distances.md
+具体计算公式 👉 https://github.com/xiligey/npml_theories/blob/master/utils/distances.md
+
 N维空间内两个点x=(x1,x2,...,xn)和点y=(y1,y2,...,yn)之间的各种距离
     - 欧氏距离
     - 曼哈顿距离
