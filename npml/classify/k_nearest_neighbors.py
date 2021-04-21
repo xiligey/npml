@@ -1,4 +1,6 @@
-"""k最近邻模块"""
+"""k最近邻模块
+相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/classify/k_nearest_neighbors.md
+"""
 from typing import Callable
 
 import numpy as np
