@@ -1,4 +1,6 @@
-"""k最近邻模块"""
+"""k最近邻模块
+相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/classify/k_nearest_neighbors.md
+"""
 from typing import Callable
 
 import numpy as np
@@ -53,4 +55,4 @@ class KNN(Classifier):
             bin_count = np.bincount(train_labels_top_k)  # 求出每个标签出现的次数
             pred_labels[i] = np.argmax(bin_count)
 
-        return pred_labels.astype(int)
+        return pred_labels
