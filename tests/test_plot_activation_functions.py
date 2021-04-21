@@ -1,5 +1,2 @@
-from npml.utils.plot.plot_activation_functions import plot_relu
+from npml.utils.plot import plot_activation_functions
 
-
-def test_plot_relu():
-    plot_relu(save_fig=True)

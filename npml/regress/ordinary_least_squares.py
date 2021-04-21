@@ -5,6 +5,7 @@ import logging
 
 import matplotlib.pyplot as plt
 import numpy as np
+from npml.utils.exceptions import NotFittedError
 from numpy import ndarray
 from numpy.linalg import inv, pinv
 
@@ -64,4 +65,4 @@ class OrdinaryLeastSquares(Regressor):
                 plt.plot(features, values)
                 plt.show()
         else:
-            logging.warning("Model is not fitted yet.")
+            raise NotFittedError("Model is not fitted yet.")

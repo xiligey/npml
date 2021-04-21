@@ -1,21 +1,19 @@
 """npml绘图"""
 from typing import Callable, Optional, Tuple
 
-from numpy import ndarray
 import matplotlib.pyplot as plt
-import numpy as np
 
 from npml.utils.activation_functions import *
 
 
 def plot_activation_functions(
-        x: ndarray,
-        func: Callable[[ndarray], ndarray],
-        func_equation: Optional[str] = None,
-        func_equation_coordinate: Optional[Tuple[float, float]] = None,
-        xticks: Optional[range] = None,
-        yticks: Optional[range] = None,
-        save_fig=False
+    x: ndarray,
+    func: Callable[[ndarray], ndarray],
+    func_equation: Optional[str] = None,
+    func_equation_coordinate: Optional[Tuple[float, float]] = None,
+    xticks: Optional[range] = None,
+    yticks: Optional[range] = None,
+    save_fig=False
 ):
     """绘制激活函数
     Args:
