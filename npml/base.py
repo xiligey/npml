@@ -1,8 +1,8 @@
 """base模块"""
 from numpy import ndarray
 
-from npml.metrics.classification import accuracy
-from npml.metrics.regression import r2
+from npml.utils.metrics.classification import accuracy
+from npml.utils.metrics.regression import r2
 
 
 class Model:
@@ -48,20 +48,6 @@ class Regressor(SupervisedModel):
 
     def score(self, y_true: ndarray, y_pred: ndarray) -> float:
         return r2(y_true, y_pred)
-
-
-class LinearRegressor(Regressor):
-    """线性回归模型"""
-    __model_type = "linear_regressor"
-
-    def __init__(self) -> None:
-        self.intercept = None  # 截距项
-        self.coefficient = None  # 系数
-
-    @property
-    def is_fitted(self) -> bool:
-        """判断模型是否已训练，如果coefficient和intercept属性皆不为空则表示模型已训练"""
-        return True if self.coefficient is not None and self.intercept is not None else True
 
 
 class Classifier(SupervisedModel):
