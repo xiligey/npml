@@ -23,5 +23,7 @@ class TestKNN:
         knn = KNN(k=k)
         knn.fit(train_features, train_labels)
         pred_labels = knn.predict(pred_features)
+        print('训练集labels: %s' % train_labels)
+        print('预测集labels %s' % pred_labels)
         # 断言 对训练集进行预测 预测的结果和训练集的标签完全一致
         assert (train_labels == pred_labels).all()
