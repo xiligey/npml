@@ -1,5 +1,6 @@
 import numpy as np
-from npml.utils.distances import euclidean_distance
+
+from npml.utils.distances import euclidean_distance, manhattan_distance
 
 
 def test_euclidean_distance():
@@ -15,7 +16,9 @@ def test_euclidean_distance():
 
 
 def test_manhattan_distance():
-    assert False
+    x1 = np.array([1, 2, 3, 4, 5])
+    x2 = x1 + 1
+    assert manhattan_distance(x1, x2) == 5
 
 
 def test_chebyshev_distance():

@@ -62,7 +62,7 @@ class KMeans(Clusterer):
             count += 1
             if count == max_iter:
                 print('达到最大迭代次数%s，停止迭代' % max_iter)
-                return self
+
         return self
 
     def _init_centroids(self, x_train: ndarray, k: int, method: str = "random"):

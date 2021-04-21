@@ -3,7 +3,6 @@ from numpy import ndarray
 
 from npml.metrics.classification import accuracy
 from npml.metrics.regression import r2
-from npml.utils.decorators import check_params_type
 
 
 class Model:
@@ -47,7 +46,6 @@ class Regressor(SupervisedModel):
     """回归模型"""
     __model_type = "regressor"
 
-    @check_params_type()
     def score(self, y_true: ndarray, y_pred: ndarray) -> float:
         return r2(y_true, y_pred)
 
@@ -70,7 +68,6 @@ class Classifier(SupervisedModel):
     """分类模型"""
     __model_type = "classifier"
 
-    @check_params_type()
     def score(self, y_true: ndarray, y_pred: ndarray) -> float:
         return accuracy(y_true, y_pred)
 
