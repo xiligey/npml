@@ -1,4 +1,4 @@
-"""决策树模块
+"""决策树
 相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/classify/decision_tree.md
 """
 from __future__ import annotations

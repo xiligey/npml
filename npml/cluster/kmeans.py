@@ -1,4 +1,4 @@
-"""kmeans模块
+"""kmeans聚类
 相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/cluster/kmeans.md
 """
 from typing import Callable
@@ -12,7 +12,6 @@ from npml.utils.exceptions import NotFittedError, NotSupportedError
 
 
 class KMeans(Clusterer):
-    """KMeans聚类"""
 
     def __init__(self) -> None:
         super().__init__()

@@ -1,4 +1,4 @@
-"""k最近邻模块
+"""k最近邻
 相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/classify/k_nearest_neighbors.md
 """
 from typing import Callable
@@ -11,7 +11,6 @@ from npml.utils.distances import euclidean_distance
 
 
 class KNN(Classifier):
-    """k最近邻分类器"""
     __model_type = 'k_nearest_neighbors'
 
     def __init__(self, k: int) -> None:

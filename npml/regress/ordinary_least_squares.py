@@ -1,11 +1,7 @@
 """普通最小二乘法模块
 相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/regress/ordinary_least_squares.md
 """
-import logging
-
-import matplotlib.pyplot as plt
 import numpy as np
-from npml.utils.exceptions import NotFittedError
 from numpy import ndarray
 from numpy.linalg import inv, pinv
 
@@ -20,12 +16,12 @@ class OrdinaryLeastSquares(Regressor):
         self.intercept = None  # 截距项
         self.coefficient = None  # 系数
 
-    def fit(self, train_features: ndarray, train_values: ndarray, use_pinv: bool = True) -> None:
+    def fit(self, train_features: ndarray, train_values: ndarray, use_pinv: bool = False) -> None:
         """训练
         Args:
             train_features: (n_samples, n_features), 训练数据
             train_values: (n_samples,), 训练数据的值
-            use_pinv: bool, 是否使用pinv来计算矩阵的逆，默认为True(因为当矩阵不可逆时，无法用inv来计算)
+            use_pinv: bool, 是否使用pinv来计算矩阵的逆，(当矩阵不可逆时使用pinv来计算)
         """
         n_samples, n_features = train_features.shape
 
@@ -50,19 +46,3 @@ class OrdinaryLeastSquares(Regressor):
             (n_samples,), 测试数据的预测值
         """
         return test_features @ self.coefficient + self.intercept
-
-    def plot(self, features: ndarray, values: ndarray) -> None:
-        """绘图(目前只支持特征维度为1)
-        Args:
-            features: (n_samples, n_features), 用于绘图的样本数据
-            values: (n_samples,), 样本数据对应的值
-        """
-        if self.coefficient is not None and self.intercept is not None:
-            if len(self.coefficient) > 1:
-                logging.warning("Number of feature dimension > 1, plotting is not supported yet")
-            else:
-                features = features.flatten()
-                plt.plot(features, values)
-                plt.show()
-        else:
-            raise NotFittedError("Model is not fitted yet.")
