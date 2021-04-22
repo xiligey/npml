@@ -5,7 +5,7 @@ import numpy as np
 from numpy import ndarray
 from numpy.linalg import inv, pinv
 
-from npml.base import Regressor
+from npml.model import Regressor
 
 
 class OrdinaryLeastSquares(Regressor):

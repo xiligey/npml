@@ -6,7 +6,7 @@ from typing import Callable
 import numpy as np
 from numpy import ndarray
 
-from npml.base import Classifier
+from npml.model import Classifier
 from npml.utils.distances import euclidean_distance
 
 

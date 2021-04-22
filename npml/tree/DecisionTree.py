@@ -1,4 +1,4 @@
-from ..base import ClassifierMixin
+from ..model import ClassifierMixin
 
 
 def divide_set(rows, column, value):

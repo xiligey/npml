@@ -7,7 +7,7 @@ from typing import Optional
 
 from numpy import ndarray
 
-from npml.base import Classifier
+from npml.model import Classifier
 
 
 class Node:

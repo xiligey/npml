@@ -1,10 +1,10 @@
 """Adaboost"""
 import numpy as np
 
-from base import ClassifierMixin
+from npml.model import Classifier
 
 
-class Adaboost(ClassifierMixin):
+class Adaboost(Classifier):
 
     def fit(self, X, y, max_iter=500, base_classifier='decision_tree'):
         """训练

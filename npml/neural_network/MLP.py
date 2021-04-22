@@ -1,6 +1,6 @@
 import numpy as np
 
-from npml.base import ClassifierMixin
+from npml.model import ClassifierMixin
 from npml.utils.activation_functions import sigmoid
 
 

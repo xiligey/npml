@@ -19,7 +19,7 @@
 """
 import numpy as np
 
-from base import Clusterer
+from model import Clusterer
 
 
 class Cluster(object):

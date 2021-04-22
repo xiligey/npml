@@ -2,7 +2,7 @@ import operator
 
 import numpy as np
 
-from base import Classifier
+from model import Classifier
 
 
 class DecisionTree(Classifier):

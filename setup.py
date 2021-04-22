@@ -4,7 +4,7 @@ setup(
     name="npml",
     version="1.0",
     packages=find_packages(),
-    scripts=['npml/base.py'],
+    scripts=['npml/model.py'],
 
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine

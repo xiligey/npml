@@ -3,7 +3,7 @@
 import numpy as np
 from numpy import ndarray
 
-from base import DimensionReducer
+from model import DimensionReducer
 
 
 class PCA(DimensionReducer):

@@ -6,7 +6,7 @@ from typing import Callable
 import numpy as np
 from numpy import ndarray
 
-from npml.base import Clusterer
+from npml.model import Clusterer
 from npml.utils.distances import euclidean_distance
 from npml.utils.exceptions import NotFittedError, NotSupportedError
 

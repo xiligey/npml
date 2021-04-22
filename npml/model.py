@@ -1,4 +1,3 @@
-"""base模块"""
 import logging
 
 from matplotlib import pyplot as plt
