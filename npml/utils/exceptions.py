@@ -7,7 +7,11 @@ class ParametersError(NPMLError):
 
 
 class NotFittedError(NPMLError):
-    """模型未训练或训练失败"""
+    """模型未训练"""
+
+
+class FitError(NPMLError):
+    """模型训练失败"""
 
 
 class NotSupportedError(NPMLError):

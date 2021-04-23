@@ -27,4 +27,5 @@ class DecisionTree(Classifier):
         """剪枝"""
 
     def predict(self) -> ndarray:
-        """预测"""
+        """预测
+        """
