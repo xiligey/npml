@@ -12,8 +12,3 @@ class NotFittedError(NPMLError):
 
 class NotSupportedError(NPMLError):
     """不支持该功能"""
-
-
-if __name__ == '__main__':
-    a = ParametersError("123")
-    raise a
