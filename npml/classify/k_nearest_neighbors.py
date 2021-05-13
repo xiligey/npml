@@ -1,5 +1,5 @@
 """k最近邻
-相关理论 👉 https://github.com/xiligey/npml_theories/blob/master/classify/k_nearest_neighbors.md
+相关理论 👉 https://www.notion.so/chenxilin/K-404ba990650f4cfaa086da31bd1776d9
 """
 from typing import Callable
 

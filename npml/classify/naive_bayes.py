@@ -22,7 +22,7 @@ class NaiveBayes(Classifier):
         """
         n_samples, n_features = train_features.shape
         distinct_labels = np.unique(train_labels)  # 计算有多少个类别
-        if distinct_labels == 1:
+        if distinct_labels.shape[0] == 1:
             raise FitError("Values of labels of train data must > 1")
         for distinct_label in distinct_labels:
             label_count = np.sum(train_labels == distinct_label)  # 当前label在训练集中出现过的次数
@@ -30,11 +30,14 @@ class NaiveBayes(Classifier):
             if distinct_label not in self.dict_p_feature_based_label.keys():
                 self.dict_p_feature_based_label[distinct_label] = {}
             for i in range(n_features):
-                feature_i = train_features[i, :]
+                feature_i = train_features[i, :]  # 第i个样本
                 distinct_feature_values = np.unique(feature_i)
+                if i not in self.dict_p_feature_based_label[distinct_label].keys():
+                    self.dict_p_feature_based_label[distinct_label][i] = {}
                 for feature_value in distinct_feature_values:
-                    x = train_features[(train_labels == distinct_label) & (feature_i == feature_value)]
-                    self.dict_p_feature_based_label[distinct_label][feature_value] = len(x) / label_count
+                    a = train_features[train_labels == distinct_label]
+                    x = a[a[:, feature_i == feature_value]]
+                    self.dict_p_feature_based_label[distinct_label][i][feature_value] = len(x) / label_count
 
     def predict(self, pred_features: ndarray) -> ndarray:
         """预测

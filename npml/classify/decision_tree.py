@@ -11,9 +11,17 @@ from npml.model import Classifier
 
 
 class Node:
-    def __init__(self, left: Optional[Node] = None, right: Optional[Node] = None):
-        self.left = None
-        self.right = None
+    def __init__(
+        self,
+        left: Optional[Node] = None,
+        right: Optional[Node] = None,
+        feature: Optional[int] = None,
+        threshold: Optional[bool] = None
+    ):
+        self.left = left
+        self.right = right
+        self.feature = feature
+        self.threshold = threshold
 
 
 class DecisionTree(Classifier):
