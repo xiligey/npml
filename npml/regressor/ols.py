@@ -1,4 +1,8 @@
-"""普通最小二乘法 """
+"""
+普通最小二乘法
+
+原理：https://npml.notion.site/24f254987a7e41fe8d5e5f601c7313b9
+"""
 import logging
 
 import numpy as np
