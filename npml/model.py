@@ -1,24 +1,19 @@
-import logging
+from typing import Callable
 
-from matplotlib import pyplot as plt
 from numpy import ndarray
 
-from .utils.exceptions import NotFittedError
-from .utils.metrics.classification import accuracy
-from .utils.metrics.regression import r2
+from metrics.classification import accuracy
+from metrics.regression import r2
 
 
 class Model:
     """所有模型的基类"""
     __model_type = "model"
 
-    def fit(self, *args, **kwargs) -> None:
-        """训练"""
-
     def predict(self, *args, **kwargs) -> ndarray:
         """预测"""
 
-    def score(self, *args, **kwargs) -> ndarray:
+    def score(self, *args, **kwargs) -> float:
         """评分"""
 
     def plot(self, *args, **kwargs) -> None:
@@ -33,6 +28,25 @@ class Model:
 class SupervisedModel(Model):
     """监督模型"""
     __model_type = "supervised_model"
+
+    def __init__(self, scoring: Callable):
+        super().__init__()
+        self.scoring = scoring
+
+    def fit(self, *args, **kwargs) -> None:
+        """训练"""
+
+    def score(self, x_pred: ndarray, y_true: ndarray) -> float:
+        """
+        回归模型的默认评估方法是决定系数R方
+        Args:
+            x_pred: (n_samples, n_features) 待预测的数据集
+            y_true: (n_samples,) 对应的真实值
+        Returns:
+            得分
+        """
+        y_pred = self.predict(x_pred)
+        return self.scoring(y_true, y_pred)
 
 
 class UnsupervisedModel(Model):
@@ -49,40 +63,18 @@ class Regressor(SupervisedModel):
     """回归模型"""
     __model_type = "regressor"
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, scoring: Callable = r2):
+        super().__init__(scoring)
         self.intercept = None  # 截距项
         self.coefficient = None  # 系数
-
-    def score(self, y_true: ndarray, y_pred: ndarray) -> float:
-        return r2(y_true, y_pred)
-
-    def plot(self, features: ndarray, values: ndarray) -> None:
-        """绘图(目前只支持特征维度为1)
-        Args:
-            features: (n_samples, n_features), 用于绘图的样本数据
-            values: (n_samples,), 样本数据对应的值
-        """
-        if self.coefficient is not None and self.intercept is not None:
-            if len(self.coefficient) > 1:
-                logging.warning("Number of feature dimension > 1, plotting is not supported yet")
-            else:
-                predicted = self.predict(features)
-                features = features.flatten()
-                plt.plot(features, values, label='original')
-                plt.plot(features, predicted, label='predicted')
-                plt.legend()
-                plt.show()
-        else:
-            raise NotFittedError("Model is not fitted yet.")
 
 
 class Classifier(SupervisedModel):
     """分类模型"""
     __model_type = "classifier"
 
-    def score(self, y_true: ndarray, y_pred: ndarray) -> float:
-        return accuracy(y_true, y_pred)
+    def __init__(self, scoring: Callable = accuracy):
+        super().__init__(scoring)
 
 
 class Clusterer(UnsupervisedModel):

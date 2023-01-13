@@ -1,13 +1,16 @@
-"""回归模型的评价指标"""
-import math
+"""
+回归模型的评价指标
+
+References: https://npml.notion.site/3300a2eb85b54c289957a9604e980354
+"""
 import numpy as np
 from numpy import ndarray
 
 
 def r2(y_true: ndarray, y_pred: ndarray) -> float:
-    """r2"""
+    """决定系数R方"""
     y_mean = y_true.mean()
-    return 1 - np.sum((y_true - y_pred)**2) / np.sum((y_true - y_mean)**2)
+    return 1 - np.sum((y_true - y_pred) ** 2) / np.sum((y_true - y_mean) ** 2)
 
 
 def explained_variance(y_true: ndarray, y_pred: ndarray) -> float:
@@ -32,7 +35,7 @@ def mse(y_true: ndarray, y_pred: ndarray) -> float:
 
 def msle(y_true: ndarray, y_pred: ndarray) -> float:
     """平均对数误差mean squared logarithmic error"""
-    return np.average((np.log(1 + y_true) - np.log(1 + y_pred))**2)
+    return np.average((np.log(1 + y_true) - np.log(1 + y_pred)) ** 2)
 
 
 def median_absolute_error(y_true: ndarray, y_pred: ndarray) -> float:
@@ -50,5 +53,6 @@ def smape(y_true: list, y_pred: list) -> float:
     """"""
     m, n = len(y_true), len(y_pred)
     assert m == n
-    x = [0 if y_true[i] == y_pred[i] == 0 else abs(2*(y_true[i]-y_pred[i])/(y_true[i]+y_pred[i])) for i in range(n)]
+    x = [0 if y_true[i] == y_pred[i] == 0 else
+         abs(2 * (y_true[i] - y_pred[i]) / (y_true[i] + y_pred[i])) for i in range(n)]
     return sum(x) / n

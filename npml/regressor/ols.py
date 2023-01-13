@@ -1,8 +1,12 @@
-"""普通最小二乘法"""
+"""普通最小二乘法 """
+import logging
+
 import numpy as np
+from matplotlib import pyplot as plt
 from numpy import ndarray
 from numpy.linalg import inv, pinv
 
+from utils.exceptions import NotFittedError
 from ..model import Regressor
 
 
@@ -15,11 +19,6 @@ class OrdinaryLeastSquares(Regressor):
         intercept: 截距项
         coefficient: 系数
     """
-
-    def __init__(self):
-        super().__init__()
-        self.intercept = None  # 截距项
-        self.coefficient = None  # 系数
 
     def fit(self, x_train: ndarray, y_train: ndarray, method="matrix", use_pinv=False) -> None:
         """训练
@@ -84,3 +83,23 @@ class OrdinaryLeastSquares(Regressor):
             (n_samples,), 测试数据的预测值
         """
         return test_features @ self.coefficient + self.intercept
+
+    def plot(self, x_true: ndarray, y_true: ndarray, y_pred: ndarray) -> None:
+        """
+        结果可视化
+        Args:
+            x_true:  (n_samples, 1), 真实样本数据
+            y_true: (n_samples,), 真实样本数据的值
+            y_pred: (n_samples,), 样本数据的预测值
+        """
+        if self.coefficient is not None and self.intercept is not None:
+            if len(self.coefficient) > 1:
+                logging.warning("Number of feature dimension > 1, plotting is not supported yet")
+            else:
+                x_true = x_true.flatten()
+                plt.scatter(x_true, y_true, label='true')
+                plt.scatter(x_true, y_pred, label='predicted')
+                plt.legend()
+                plt.show()
+        else:
+            raise NotFittedError("Model is not fitted yet.")
