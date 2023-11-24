@@ -1,10 +1,11 @@
 """分类指标"""
+import numpy as np
 from numpy import ndarray
 
 
 def accuracy(y_true: ndarray, y_pred: ndarray) -> float:
-    """准确率：accuracy = (TP + TN) / (TP + TN + FP + FN)"""
-    return (y_true == y_pred).mean()
+    """准确率 = 正确分类的样本数 / 总样本数"""
+    return np.mean(y_true == y_pred)
 
 
 def precision(y_true: ndarray, y_pred: ndarray) -> float:
