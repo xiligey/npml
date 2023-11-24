@@ -28,7 +28,7 @@ def sigmoid(x: ndarray) -> ndarray:
 
 def sign(x: ndarray) -> ndarray:
     """符号函数"""
-    return np.sign(x)  # 这个有点尴尬😅
+    return np.sign(x)
 
 
 def step(x: ndarray) -> ndarray:
