@@ -8,7 +8,7 @@ A Python machine learning package mainly implemented by numpy、pandas and matpl
 - 聚类
     - [ ] [KMeans聚类]()
 - 模型评估
-- 
+  - [ ] 
 - 工具
     
     - [ ] [各种距离、相似度](npml/utils/distances.py)
@@ -16,10 +16,7 @@ A Python machine learning package mainly implemented by numpy、pandas and matpl
         - [x] 曼哈顿距离
         - [x] 切比雪夫距离
         - [x] 闵可夫斯基距离
-        - [ ] 标准化欧氏距离
-        - [ ] 马氏距离
-        - [ ] 巴氏距离
-        - [ ] 余弦相似度
-        - [ ] 编辑距离
-        - [ ] 文本相似度
+        - [x] 标准化欧氏距离
+        - [x] 马氏距离
+        - [x] 余弦相似度
     - [ ] [激活函数]()

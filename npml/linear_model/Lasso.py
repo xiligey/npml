@@ -1,2 +1,0 @@
-class Lasso(object):
-    """"""
