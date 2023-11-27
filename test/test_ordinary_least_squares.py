@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 
 
 def test_ordinary_least_squares():
-    data = pd.read_csv(r'C:\Users\chenxilin\BaiduSyncdisk\Python\npml\data\world-happiness-report-2017.csv')
+    data = pd.read_csv('..\\data\\world-happiness-report-2017.csv')
 
     # 得到训练和测试数据
     train_data = data
