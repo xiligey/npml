@@ -1,7 +1,7 @@
 A Python machine learning package mainly implemented by numpy、pandas and matplotlib.
 
 - 回归
-    - [ ] [普通最小二乘法]()
+    - [x] [普通最小二乘法](npml/linear_model/ordinary_least_squares.py)
 - 分类
     - [ ] [朴素贝叶斯]()
     - [ ] [K最近邻]()
