@@ -10,6 +10,10 @@ class NotFittedError(NpmlError):
     """模型未训练"""
 
 
+class NotFittedWithGradientDescentError(NpmlError):
+    """模型未通过梯度下降法训练"""
+
+
 class FitError(NpmlError):
     """模型训练失败"""
 

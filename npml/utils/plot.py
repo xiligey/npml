@@ -7,13 +7,13 @@ from npml.utils.activation_functions import *
 
 
 def plot_activation_functions(
-    x: ndarray,
-    func: Callable[[ndarray], ndarray],
-    func_equation: Optional[str] = None,
-    func_equation_coordinate: Optional[Tuple[float, float]] = None,
-    xticks: Optional[range] = None,
-    yticks: Optional[range] = None,
-    save_fig=False
+        x: ndarray,
+        func: Callable[[ndarray], ndarray],
+        func_equation: Optional[str] = None,
+        func_equation_coordinate: Optional[Tuple[float, float]] = None,
+        xticks: Optional[range] = None,
+        yticks: Optional[range] = None,
+        save_fig=False
 ):
     """绘制激活函数
     Args:
@@ -31,7 +31,7 @@ def plot_activation_functions(
     plt.title('%s激活函数' % func.__name__, loc='left')  # 标题放在左侧
     plt.axis('scaled')  # 让x轴和y轴的单位度量一样长
     xticks = range(x.min() - 1, x.max() + 1, 1) if xticks is None else xticks
-    yticks = range(y.min() - 1, y.max() + 1, 1) if xticks is None else xticks
+    yticks = range(y.min() - 1, y.max() + 1, 1) if yticks is None else yticks
     plt.xticks(xticks)
     plt.yticks(yticks)
     if func_equation is not None:

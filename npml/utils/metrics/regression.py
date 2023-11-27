@@ -29,6 +29,11 @@ def mse(y_true: ndarray, y_pred: ndarray) -> float:
     return np.average((y_true - y_pred) ** 2)
 
 
+def rmse(y_true: ndarray, y_pred: ndarray) -> float:
+    """均方根误差"""
+    return np.sqrt(mse(y_true, y_pred))
+
+
 def msle(y_true: ndarray, y_pred: ndarray) -> float:
     """平均对数误差mean squared logarithmic error"""
     return np.average((np.log(1 + y_true) - np.log(1 + y_pred)) ** 2)

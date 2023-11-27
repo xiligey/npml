@@ -52,8 +52,7 @@ class Regressor(SupervisedModel):
 
     def __init__(self):
         super().__init__()
-        self.intercept: Optional[float] = None  # 截距项
-        self.coeffs: Optional[ndarray] = None  # 系数
+        self.theta: Optional[ndarray] = None  # 系数（第1个为截距项）
 
     def score(self, y_true: ndarray, y_pred: ndarray) -> float:
         return r2(y_true, y_pred)
@@ -64,8 +63,8 @@ class Regressor(SupervisedModel):
             features: (n_samples, n_features), 用于绘图的样本数据
             values: (n_samples,), 样本数据对应的值
         """
-        if self.coeffs is not None and self.intercept is not None:
-            if len(self.coeffs) > 1:
+        if self.theta:
+            if len(self.theta) > 1:
                 logging.warning("Number of feature dimension > 1, plotting is not supported yet")
             else:
                 predicted = self.predict(features)
