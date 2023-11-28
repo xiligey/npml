@@ -5,14 +5,9 @@ from sklearn.linear_model import LinearRegression
 
 
 def test_ordinary_least_squares():
-    data = pd.read_csv('..\\data\\world-happiness-report-2017.csv')
-
-    # 得到训练和测试数据
-    train_data = data
-
+    train_data = pd.read_csv('..\\data\\world-happiness-report-2017.csv')
     input_param_name = 'Economy..GDP.per.Capita.'
     output_param_name = 'Happiness.Score'
-
     x = train_data[[input_param_name]].values
     y = train_data[[output_param_name]].values
 
